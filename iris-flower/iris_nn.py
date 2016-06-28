@@ -24,6 +24,6 @@ class IrisNN:
         # Input layer
         self.X_test_set = tf.placeholder(tf.float32, shape=[test_set_size, self.number_features + 1], name='X_test_set')
         # Hidden layer 1
-        A1_test_set = tf.sigmoid(tf.matmul(W1, self.X_test_set, transpose_b=True), name='A1')
+        A1_test_set = tf.sigmoid(tf.matmul(W1, self.X_test_set, transpose_b=True), name='A1_test_set')
         # Output layer
-        self.H_test_set = tf.transpose(tf.nn.softmax(tf.transpose(tf.matmul(W2, A1_test_set))), name='H')
+        self.H_test_set = tf.transpose(tf.nn.softmax(tf.transpose(tf.matmul(W2, A1_test_set))), name='H_test_set')
