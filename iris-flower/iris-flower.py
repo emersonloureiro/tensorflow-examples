@@ -24,9 +24,15 @@ for epoch in range(epochs):
     iteration.append(epoch)
     session.run(optimizer, feed_dict={iris_nn.X: input_data.xs, iris_nn.Y: input_data.ys})
 
-y_pred = np.transpose(session.run(iris_nn.H_test_set, feed_dict={iris_nn.X_test_set: input_data.xs_test})).argmax(1)
+y_pred = np.transpose(session.run(iris_nn.H, feed_dict={iris_nn.X: input_data.xs_test})).argmax(1)
 y_true = np.transpose(input_data.ys_test).argmax(1)
 f1 = f1_score(y_true, y_pred, average=None)
+
+print('================================================================')
+print('True: {}'.format(y_true))
+print('Pred: {}'.format(y_pred))
+print 'F1 score: {!r}'.format(f1)
+print('================================================================')
 
 plt.ion()
 fig, ax = plt.subplots(1, 1)
