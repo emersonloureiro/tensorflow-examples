@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.metrics import f1_score
 
 # Read the input file
-input_data = Input('../sample-datasets/iris-flower-edited.csv', 4)
+input_data = Input('iris-flower-edited.csv', 4)
 # The NN architecture & info
 iris_nn = IrisNN(3, 4, 3, input_data.m, input_data.test_set_size)
 

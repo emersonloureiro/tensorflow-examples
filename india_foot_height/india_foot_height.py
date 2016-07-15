@@ -8,7 +8,7 @@ xs_temp = []
 ys = []
 # Bias
 bs = []
-with open('sample-datasets/india_foot_height.csv') as inputFile:
+with open('india_foot_height.csv') as inputFile:
     csvReader = csv.reader(inputFile, delimiter=',')
     for line in csvReader:
         xs_temp.append(float(line[0]))
