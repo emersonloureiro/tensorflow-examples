@@ -8,7 +8,7 @@ from sklearn.metrics import f1_score
 # Read the input file
 input_data = Input('iris-flower-edited.csv', 4)
 # The NN architecture & info
-iris_nn = IrisNN(3, 4, 3, input_data.m, input_data.test_set_size)
+iris_nn = IrisNN(3, 4, 3)
 
 # Gradient descent optimizer
 optimizer = tf.train.GradientDescentOptimizer(0.005).minimize(iris_nn.j)

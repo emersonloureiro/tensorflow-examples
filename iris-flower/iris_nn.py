@@ -2,7 +2,7 @@ import tensorflow as tf
 
 
 class IrisNN:
-    def __init__(self, number_hidden_units, number_features, number_classes, train_set_size, test_set_size):
+    def __init__(self, number_hidden_units, number_features, number_classes):
         self.number_hidden_units = number_hidden_units
         self.number_features = number_features
         self.number_classes = number_classes
