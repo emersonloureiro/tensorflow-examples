@@ -8,22 +8,15 @@ class Model:
         self.X = tf.placeholder(tf.float32, [None, 128, 128, self.input_channels], 'X')
 
         # Convolutional layers stacked up
-        self.convolutional_layers = []
-        convolutional_layer_1 = ConvolutionalLayer(self.X, 5, 1, 20, '1')
-        self.convolutional_layers.append(convolutional_layer_1)
-        max_pooling_layer_1 = MaxPoolingLayer(convolutional_layer_1, 2, 2, '1')
+        self.convolutional_layer_1 = ConvolutionalLayer(self.X, 5, 1, 50, '1')
+        max_pooling_layer_1 = MaxPoolingLayer(self.convolutional_layer_1, 2, 2, '1')
 
-        convolutional_layer_2 = ConvolutionalLayer(max_pooling_layer_1.output, 5, 1, 10, '2')
-        self.convolutional_layers.append(convolutional_layer_2)
-        max_pooling_layer_2 = MaxPoolingLayer(convolutional_layer_2, 2, 2, '2')
-
-        convolutional_layer_3 = ConvolutionalLayer(max_pooling_layer_2.output, 5, 1, 10, '3')
-        self.convolutional_layers.append(convolutional_layer_3)
-        max_pooling_layer_3 = MaxPoolingLayer(convolutional_layer_3, 2, 2, '3')
+        self.convolutional_layer_2 = ConvolutionalLayer(max_pooling_layer_1.output, 5, 1, 50, '2')
+        max_pooling_layer_2 = MaxPoolingLayer(self.convolutional_layer_2, 2, 2, '2')
 
         # Fully connected layer
-        fully_connected_layer_hidden_units = 1000
-        self.fully_connected_layer = FullyConnectedLayer(max_pooling_layer_3, fully_connected_layer_hidden_units)
+        fully_connected_layer_hidden_units = 2000
+        self.fully_connected_layer = FullyConnectedLayer(max_pooling_layer_2, fully_connected_layer_hidden_units)
 
         # Dropout layer
         self.dropout_layer = DropoutLayer(self.fully_connected_layer)
