@@ -5,6 +5,8 @@ from iris_nn import IrisNN
 import numpy as np
 from sklearn.metrics import f1_score
 
+np.set_printoptions(threshold=np.inf, precision=3, linewidth=1000, suppress=True)
+
 # Read the input file
 input_data = Input('iris-flower-edited.csv', 4)
 # The NN architecture & info
