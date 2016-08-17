@@ -17,3 +17,11 @@ To run, `cd` into `india_foot_height` and run `python india_foot_height.py`. It'
 Description of the dataset available [here](https://archive.ics.uci.edu/ml/datasets/Iris), and the actual dataset is available [here](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data).
 
 To run, `cd` into `iris-flower` and run `python iris-flower.py`. It'll split the total dataset into training and test sets, train a neural network and then plot the value cost function over time.
+
+## Visual Learning
+
+### COIL-20
+
+A convolutional neural network for image classification, using a subset of the [COIL-20](http://www.cs.columbia.edu/CAVE/software/softlib/coil-20.php) image dataset.
+
+This is only using three classes from the COIL-20 dataset.
