@@ -1,0 +1,3 @@
+mug
+pigbank
+rubber-duck
