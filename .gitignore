@@ -1,3 +1,7 @@
+**inception-images*
+**checkpoint*
+**.ckpt*
 events*
 *.pyc
 *idea*
+*.DS_Store*

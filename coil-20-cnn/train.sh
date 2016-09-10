@@ -1,11 +1,33 @@
-# location to where to save the TFRecord data.
-OUTPUT_DIRECTORY=$HOME/Development/learning/tensorflow-examples/coil-20-cnn
-TRAIN_DIR=$HOME/Development/learning/tensorflow-examples/coil-20-cnn/images/training
-VALIDATION_DIR=$HOME/Development/learning/tensorflow-examples/coil-20-cnn/images/validation
-LABELS_FILE=$HOME/Development/learning/tensorflow-examples/coil-20-cnn/labels.txt
+#!/bin/sh
 
-# build the preprocessing script.
-bazel build $HOME/Development/osProjects/tensorflow-models/inception/build_image_data
+PRETRAINED_MODEL_PATH="$1"
 
-# convert the data.
-bazel-bin/inception/build_image_data --train_directory="${TRAIN_DIR}" --validation_directory="${VALIDATION_DIR}" --output_directory="${OUTPUT_DIRECTORY}" --labels_file="${LABELS_FILE}" --train_shards=128 --validation_shards=24 --num_threads=8
+if [ -z "$PRETRAINED_MODEL_PATH" ]
+then
+    echo "Missing parameters"
+	echo "Usage: ./train.sh PATH_TO_PRETRAINED_MODEL"
+	exit 1
+fi
+
+PREPROCESSED_IMAGES_DIR=$BASE_DIR/images/inception-images
+
+cd $TENSORFLOW_INCEPTION
+
+echo "Building model for retraining..."
+
+# Build the model. Note that we need to make sure the TensorFlow is ready to
+# use before this as this command will not build TensorFlow.
+bazel build inception/coil_20_train
+
+# Directory where to save the checkpoint and events files.
+RETRAINED_MODEL_DIR=$BASE_DIR/inception-retrained
+
+echo "Retraining model..."
+
+bazel-bin/inception/coil_20_train \
+  --train_dir="${RETRAINED_MODEL_DIR}" \
+  --data_dir="${PREPROCESSED_IMAGES_DIR}" \
+  --pretrained_model_checkpoint_path="${PRETRAINED_MODEL_PATH}" \
+  --fine_tune=True \
+  --initial_learning_rate=0.001 \
+  --input_queue_memory_factor=1
