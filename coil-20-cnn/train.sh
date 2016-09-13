@@ -15,14 +15,14 @@ echo "Building model for retraining..."
 
 # Build the model. Note that we need to make sure the TensorFlow is ready to
 # use before this as this command will not build TensorFlow.
-bazel build inception/coil_20_train
+bazel build coil_20_train
 
 # Directory where to save the checkpoint and events files.
 RETRAINED_MODEL_DIR=$BASE_DIR/inception-retrained
 
 echo "Retraining model..."
 
-bazel-bin/inception/coil_20_train \
+bazel-bin/coil_20_train \
   --train_dir="${RETRAINED_MODEL_DIR}" \
   --data_dir="${PREPROCESSED_IMAGES_DIR}" \
   --pretrained_model_checkpoint_path="${PRETRAINED_MODEL_PATH}" \

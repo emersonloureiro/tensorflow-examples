@@ -21,7 +21,7 @@ from __future__ import print_function
 import tensorflow as tf
 
 from inception import inception_train
-from inception.coil_20_data import Coil20Data
+from coil_20_data import Coil20Data
 
 FLAGS = tf.app.flags.FLAGS
 

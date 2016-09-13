@@ -7,6 +7,11 @@ licenses(["notice"])  # Apache 2.0
 
 exports_files(["LICENSE"])
 
+package_group(
+    name = "internal",
+    packages = ["//inception/..."],
+)
+
 py_binary(
     name = "coil_20_train",
     srcs = [
@@ -14,7 +19,7 @@ py_binary(
     ],
     deps = [
         ":coil_20_data",
-        ":inception_train",
+        "//inception:inception_train",
     ],
 )
 
@@ -24,25 +29,6 @@ py_library(
         "coil_20_data.py",
     ],
     deps = [
-        ":dataset",
-    ],
-)
-
-py_library(
-    name = "dataset",
-    srcs = [
-        "dataset.py",
-    ],
-)
-
-py_library(
-    name = "inception",
-    srcs = [
-        "inception_model.py",
-    ],
-    visibility = ["//visibility:public"],
-    deps = [
-        ":dataset",
-        "//inception/slim",
+        "//inception:dataset",
     ],
 )
