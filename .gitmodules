@@ -1,0 +1,3 @@
+[submodule "coil-20-cnn/models"]
+	path = coil-20-cnn/models
+	url = git@github.com:tensorflow/models.git
