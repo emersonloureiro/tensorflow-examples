@@ -11,8 +11,6 @@ fi
 
 PREPROCESSED_IMAGES_DIR=$BASE_DIR/images/inception-images
 
-cd $TENSORFLOW_INCEPTION
-
 echo "Building model for retraining..."
 
 # Build the model. Note that we need to make sure the TensorFlow is ready to

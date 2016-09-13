@@ -5,8 +5,6 @@ TRAIN_DIR=$BASE_DIR/images/training
 VALIDATION_DIR=$BASE_DIR/images/validation
 LABELS_FILE=$BASE_DIR/labels.txt
 
-cd $TENSORFLOW_INCEPTION
-
 # Build the preprocessing scripts
 bazel build inception/build_image_data
 
