@@ -1,5 +1,6 @@
 #!/bin/sh
 
+BASE_DIR=$(pwd)
 PREPROCESSED_IMAGES_DIR=$BASE_DIR/images/inception-images
 TRAIN_DIR=$BASE_DIR/images/training
 VALIDATION_DIR=$BASE_DIR/images/validation
