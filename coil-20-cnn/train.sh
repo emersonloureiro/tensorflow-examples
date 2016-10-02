@@ -9,6 +9,7 @@ then
 	exit 1
 fi
 
+BASE_DIR=$(pwd)
 PREPROCESSED_IMAGES_DIR=$BASE_DIR/images/inception-images
 
 echo "Building model for retraining..."
