@@ -32,3 +32,14 @@ py_library(
         "//inception:dataset",
     ],
 )
+
+py_binary(
+    name = "coil_20_eval",
+    srcs = [
+        "coil_20_eval.py",
+    ],
+    deps = [
+        ":coil_20_data",
+        "//inception:inception_eval",
+    ],
+)
