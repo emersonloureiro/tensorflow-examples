@@ -22,9 +22,8 @@ RETRAINED_MODEL_DIR=$BASE_DIR/inception-retrained
 echo "Retraining model..."
 
 bazel-bin/coil_20_train \
-    --max_steps=4000 \
-    --num_gpus=5 \
-    --batch_size=5 \
+    --max_steps=500 \
+    --batch_size=20 \
     --train_dir="${RETRAINED_MODEL_DIR}" \
     --data_dir="${PREPROCESSED_IMAGES_DIR}" \
     --pretrained_model_checkpoint_path="${PRETRAINED_MODEL_PATH}" \

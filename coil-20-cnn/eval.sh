@@ -18,12 +18,11 @@ RETRAINED_MODEL_DIR=$BASE_DIR/inception-retrained
 echo "Running evaluation..."
 
 bazel-bin/coil_20_eval \
-    --num_gpus=1 \
     --batch_size=1 \
     --eval_dir="${EVAL_DIR}" \
     --data_dir="${PREPROCESSED_IMAGES_DIR}" \
     --subset=validation \
-    --num_examples= \
+    --num_examples=48 \
     --checkpoint_dir="${RETRAINED_MODEL_DIR}" \
     --input_queue_memory_factor=1 \
     --run_once

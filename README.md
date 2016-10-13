@@ -22,6 +22,10 @@ To run, `cd` into `iris-flower` and run `python iris-flower.py`. It'll split the
 
 ### COIL-20
 
-A convolutional neural network for image classification, using a subset of the [COIL-20](http://www.cs.columbia.edu/CAVE/software/softlib/coil-20.php) image dataset.
+A convolutional neural network for image classification, using a subset of the [COIL-20](http://www.cs.columbia.edu/CAVE/software/softlib/coil-20.php) image dataset - three classes to be more precise, rubber-duck, mug, pigbank. It uses Google's pretrained Inception V3 model. To run this, you'll need:
 
-This is only using three classes from the COIL-20 dataset.
+1. cd into `coil-20`
+2. `mkdir images/inception-images` - this is where the pre-processed images for re-training will be kept
+3. `./preprocess.sh` - this will pre-process all images under images/training, to a format that the tensorflow inception model accepts
+4. `./train.sh PATH_TO_INCEPTION_V3_MODEL` - you'll need to download the Inception V3 model and use the path you saved in place of `PATH_TO_INCEPTION_V3_MODEL`. You can tune the training parameters (e.g., max iterations) by modifying the `train.sh` script
+5. After training, run `./eval` to see the level of accuracy you achieved
