@@ -10,7 +10,7 @@ np.set_printoptions(threshold=np.inf, precision=3, linewidth=1000, suppress=True
 # Read the input file
 input_data = Input('iris-flower-edited.csv', 4)
 # The NN architecture & info
-iris_nn = IrisNN(3, 4, 3)
+iris_nn = IrisNN(5, 4, 3)
 
 # Gradient descent optimizer
 optimizer = tf.train.GradientDescentOptimizer(0.005).minimize(iris_nn.j)
